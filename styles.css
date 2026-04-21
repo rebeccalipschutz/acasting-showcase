@@ -896,7 +896,7 @@ body {
 
 .agency-benefits {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     margin-bottom: 32px;
 }
@@ -1088,7 +1088,7 @@ body {
 }
 
 @media (max-width: 1024px) {
-    .agency-benefits { grid-template-columns: 1fr; }
+    .agency-benefits { grid-template-columns: repeat(2, 1fr); }
     .agency-step-list { grid-template-columns: 1fr; }
 }
 
