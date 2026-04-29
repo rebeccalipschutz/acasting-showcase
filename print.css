@@ -1,0 +1,201 @@
+/* PDF print styles — A4 landscape, one slide per page, dark design preserved */
+
+@page {
+    size: A4 landscape;
+    margin: 0;
+}
+
+@media print {
+    html, body {
+        background: var(--bg-dark) !important;
+        color: var(--text-primary) !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        scroll-snap-type: none !important;
+    }
+
+    #slide-nav { display: none !important; }
+
+    .slide {
+        min-height: 100vh !important;
+        height: 100vh !important;
+        max-height: 100vh !important;
+        width: 100%;
+        page-break-after: always;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        padding: 32px 48px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        scroll-snap-align: none !important;
+        background: var(--bg-dark) !important;
+        overflow: hidden !important;
+    }
+    .slide:last-child { page-break-after: auto; }
+    .slide-content { max-width: 100%; width: 100%; }
+
+    .slide-content > * {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    /* ===== BASE TYPOGRAPHY ===== */
+    .slide-label { font-size: 11px !important; margin-bottom: 10px !important; letter-spacing: 2.5px !important; }
+    .slide h2 { font-size: 30px !important; margin-bottom: 12px !important; line-height: 1.15 !important; }
+    .slide-intro { font-size: 13px !important; margin-bottom: 22px !important; line-height: 1.5 !important; max-width: 880px !important; }
+    .section-subtitle { font-size: 13px !important; margin: 18px 0 12px !important; letter-spacing: 1px !important; }
+
+    /* ===== SLIDE 1 — COVER ===== */
+    .slide-cover { padding: 32px 48px !important; }
+    .cover-badge { padding: 7px 18px !important; font-size: 11px !important; margin-bottom: 28px !important; letter-spacing: 2.5px !important; }
+    .cover-title { font-size: 88px !important; margin-bottom: 14px !important; letter-spacing: 7px !important; }
+    .cover-subtitle { font-size: 20px !important; margin-bottom: 22px !important; }
+    .cover-divider { margin: 0 auto 22px !important; }
+    .cover-tagline { font-size: 14px !important; margin-bottom: 30px !important; max-width: 700px !important; line-height: 1.6 !important; }
+    .cover-footer { font-size: 12px !important; gap: 30px !important; }
+
+    /* ===== SLIDE 2 — LAYERS ===== */
+    .layers-stack { gap: 11px !important; margin-bottom: 0 !important; }
+    .layer { padding: 18px 22px !important; }
+    .layer-badge { padding: 3px 10px !important; font-size: 9px !important; margin-bottom: 8px !important; letter-spacing: 1px !important; }
+    .layer h3 { font-size: 17px !important; margin-bottom: 5px !important; }
+    .layer p { font-size: 12px !important; line-height: 1.45 !important; margin-bottom: 10px !important; }
+    .layer-features { gap: 6px !important; }
+    .feature-tag { padding: 3px 10px !important; font-size: 10px !important; }
+
+    /* ===== SLIDE 3 — PARTNERS ===== */
+    .partner-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 14px !important; margin-bottom: 18px !important; }
+    .partner-category { padding: 16px 18px !important; }
+    .partner-category h3 { font-size: 11px !important; margin-bottom: 10px !important; letter-spacing: 1px !important; }
+    .partner-logos { gap: 5px !important; }
+    .partner-logo { padding: 4px 9px !important; font-size: 10.5px !important; }
+    .stat-row { grid-template-columns: repeat(3, 1fr) !important; gap: 14px !important; margin: 0 !important; }
+    .stat-box { padding: 14px 14px !important; }
+    .stat-number { font-size: 26px !important; line-height: 1 !important; }
+    .stat-label { font-size: 11px !important; margin-top: 4px !important; }
+
+    /* ===== SLIDE 4 — AGENCY (densest slide, very compact) ===== */
+    #slide-4 .slide-intro { font-size: 11.5px !important; margin-bottom: 12px !important; line-height: 1.45 !important; max-width: 920px !important; }
+    #slide-4 h2 { font-size: 26px !important; margin-bottom: 8px !important; }
+    #slide-4 .section-subtitle { font-size: 11px !important; margin: 10px 0 8px !important; }
+
+    .agency-benefits { grid-template-columns: repeat(3, 1fr) !important; gap: 10px !important; margin-bottom: 8px !important; }
+    .agency-card { padding: 10px 14px !important; }
+    .agency-icon { margin-bottom: 5px !important; }
+    .agency-icon svg { width: 18px !important; height: 18px !important; }
+    .agency-card h4 { font-size: 11.5px !important; margin-bottom: 3px !important; }
+    .agency-card p { font-size: 10px !important; line-height: 1.4 !important; }
+
+    .agency-layers { gap: 8px !important; margin-bottom: 8px !important; }
+    .agency-layer-header { padding: 7px 14px !important; gap: 10px !important; }
+    .agency-layer-badge { padding: 2px 8px !important; font-size: 8.5px !important; letter-spacing: 1px !important; }
+    .agency-layer-header h4 { font-size: 12px !important; }
+    .agency-layer-price { font-size: 11px !important; }
+    .agency-layer-content { padding: 8px 14px !important; }
+    .agency-layer-desc { font-size: 10.5px !important; margin-bottom: 6px !important; line-height: 1.4 !important; }
+
+    .agency-step-list { grid-template-columns: repeat(3, 1fr) !important; gap: 4px !important; margin-bottom: 6px !important; }
+    .agency-step-item { padding: 4px 8px !important; font-size: 9.5px !important; gap: 6px !important; line-height: 1.3 !important; }
+    .step-num { width: 16px !important; height: 16px !important; font-size: 9px !important; }
+    .agency-layer-tags { gap: 4px !important; }
+    .agency-layer-tags .feature-tag { font-size: 9px !important; padding: 2px 8px !important; }
+
+    /* Trademark: 5 steps in 5-column grid for compactness */
+    .trademark-steps { display: grid !important; grid-template-columns: repeat(5, 1fr) !important; gap: 6px !important; }
+    .tm-step { flex-direction: column !important; align-items: flex-start !important; padding: 8px 10px !important; gap: 4px !important; border-left-width: 2px !important; }
+    .tm-num { font-size: 13px !important; width: auto !important; line-height: 1 !important; }
+    .tm-content h5 { font-size: 10.5px !important; margin-bottom: 2px !important; line-height: 1.2 !important; }
+    .tm-content p { font-size: 9.5px !important; line-height: 1.35 !important; }
+
+    .agency-addon { padding: 7px 14px !important; gap: 10px !important; margin-top: 0 !important; }
+    .addon-icon svg { width: 16px !important; height: 16px !important; }
+    .agency-addon h4 { font-size: 11px !important; margin-bottom: 1px !important; }
+    .agency-addon p { font-size: 10px !important; line-height: 1.35 !important; }
+
+    /* ===== SLIDE 5 — DIGITAL TWIN (also dense) ===== */
+    #slide-5 h2 { font-size: 26px !important; margin-bottom: 8px !important; }
+    #slide-5 .slide-intro { font-size: 11px !important; margin-bottom: 10px !important; line-height: 1.4 !important; max-width: 920px !important; }
+
+    /* dt-flow: 4 steps as 4-column grid (no arrows) */
+    .dt-flow { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 8px !important; margin-bottom: 8px !important; }
+    .dt-step { display: flex !important; flex-direction: column !important; align-items: stretch !important; gap: 6px !important; max-width: none !important; width: 100% !important; }
+    .dt-number { width: 22px !important; height: 22px !important; font-size: 11px !important; }
+    .dt-box { padding: 8px 12px !important; }
+    .dt-box h4 { font-size: 11px !important; margin-bottom: 2px !important; line-height: 1.2 !important; }
+    .dt-box p { font-size: 9.5px !important; line-height: 1.35 !important; }
+    .dt-arrow { display: none !important; }
+
+    #slide-5 .section-subtitle { font-size: 11px !important; margin: 8px 0 6px !important; }
+    .dt-production-intro { font-size: 10.5px !important; margin-bottom: 6px !important; line-height: 1.4 !important; max-width: 920px !important; }
+
+    /* dt-production-flow: 5 steps as 5-column grid */
+    .dt-production-flow { display: grid !important; grid-template-columns: repeat(5, 1fr) !important; gap: 6px !important; margin-bottom: 8px !important; }
+    .dt-prod-step { flex-direction: column !important; align-items: flex-start !important; padding: 7px 10px !important; gap: 4px !important; }
+    .dt-prod-num { width: 18px !important; height: 18px !important; font-size: 10px !important; }
+    .dt-prod-content h4 { font-size: 10px !important; margin-bottom: 2px !important; line-height: 1.2 !important; }
+    .dt-prod-content p { font-size: 9px !important; line-height: 1.35 !important; }
+
+    .quote-block { padding: 10px 16px !important; margin: 6px 0 0 !important; }
+    .quote-block p { font-size: 11px !important; line-height: 1.45 !important; }
+    .quote-author { font-size: 10px !important; margin-top: 4px !important; }
+
+    /* ===== SLIDE 6 — SMAKIS CASE ===== */
+    .case-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 12px !important; margin-bottom: 16px !important; }
+    .case-card { padding: 14px !important; }
+    .case-icon { margin-bottom: 8px !important; }
+    .case-icon svg { width: 24px !important; height: 24px !important; }
+    .case-card h4 { font-size: 14px !important; margin-bottom: 4px !important; }
+    .case-card p { font-size: 11px !important; line-height: 1.45 !important; }
+
+    .case-image-strip-4 { grid-template-columns: repeat(4, 1fr) !important; gap: 10px !important; margin-bottom: 14px !important; }
+    .case-image { height: 140px !important; padding: 8px !important; }
+    .case-image span { font-size: 9.5px !important; padding: 3px 8px !important; line-height: 1.3 !important; }
+
+    .case-quotes { margin-bottom: 14px !important; }
+    .case-partners { gap: 10px !important; margin-bottom: 14px !important; font-size: 12px !important; }
+    .video-btn { padding: 9px 22px !important; font-size: 12px !important; gap: 8px !important; }
+    .video-btn svg { width: 14px !important; height: 14px !important; }
+
+    /* ===== SLIDE 7 — EU AI ACT ===== */
+    .regulation-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; margin-bottom: 16px !important; }
+    .reg-card { padding: 14px 18px !important; }
+    .reg-flag { padding: 2px 9px !important; font-size: 10px !important; margin-bottom: 8px !important; letter-spacing: 1px !important; }
+    .reg-card h4 { font-size: 13px !important; margin-bottom: 5px !important; }
+    .reg-card p { font-size: 11.5px !important; line-height: 1.5 !important; }
+
+    .compliance-box { padding: 14px 22px !important; gap: 16px !important; }
+    .compliance-icon svg { width: 30px !important; height: 30px !important; }
+    .compliance-text h4 { font-size: 13px !important; margin-bottom: 4px !important; }
+    .compliance-text p { font-size: 12px !important; line-height: 1.5 !important; }
+
+    /* ===== SLIDE 8 — TEAM ===== */
+    .team-grid-5 { grid-template-columns: repeat(5, 1fr) !important; gap: 12px !important; }
+    .team-card { padding: 18px 14px !important; }
+    .team-photo { width: 100px !important; height: 100px !important; margin-bottom: 12px !important; border-width: 2px !important; }
+    .team-card h3 { font-size: 13px !important; margin-bottom: 3px !important; }
+    .team-role { font-size: 11px !important; margin-bottom: 8px !important; }
+    .team-card p { font-size: 10.5px !important; line-height: 1.45 !important; }
+
+    /* ===== SLIDE 9 — VISION ===== */
+    .slide-cover#slide-9 .slide-content > h2 { font-size: 32px !important; margin-bottom: 22px !important; line-height: 1.2 !important; }
+    .vision-timeline { gap: 0 !important; margin: 18px 0 !important; flex-wrap: nowrap !important; justify-content: center !important; }
+    .vision-step { padding: 14px 16px !important; min-width: 0 !important; flex: 1 1 0 !important; max-width: 200px !important; }
+    .vision-when { font-size: 13px !important; margin-bottom: 6px !important; }
+    .vision-what { font-size: 11px !important; line-height: 1.4 !important; }
+    .vision-connector { width: 18px !important; }
+    .vision-quote { margin: 18px auto !important; max-width: 700px !important; }
+    .vision-quote p { font-size: 16px !important; line-height: 1.5 !important; }
+    .vision-contact { margin-top: 18px !important; }
+    .vision-contact h3 { font-size: 16px !important; margin-bottom: 4px !important; }
+    .vision-contact p { font-size: 12px !important; margin-bottom: 12px !important; }
+    .contact-links { gap: 22px !important; font-size: 11.5px !important; }
+
+    /* Disable hover effects in print */
+    .case-image:hover, .ai-step:hover, .dt-prod-step:hover, .video-btn:hover {
+        transform: none !important;
+        box-shadow: none !important;
+        border-color: var(--border) !important;
+    }
+}

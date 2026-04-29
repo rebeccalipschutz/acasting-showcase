@@ -1146,10 +1146,4 @@ body {
     .case-image-strip-4 { grid-template-columns: 1fr; }
 }
 
-/* Print / PDF export */
-@media print {
-    html { scroll-snap-type: none; }
-    .slide { min-height: auto; page-break-after: always; padding: 40px; }
-    #slide-nav { display: none; }
-    body { background: white; color: black; }
-}
+/* Print / PDF export — see print.css for full A4 landscape rules */
